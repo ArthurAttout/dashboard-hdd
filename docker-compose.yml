@@ -1,0 +1,16 @@
+name: dashboard-hdd
+services:
+    dashboard-hdd:
+        build:
+            dockerfile: Dockerfile
+            context: .
+        volumes:
+            - ${PWD}/pipe:/mount/pipe:ro
+        stdin_open: true
+        tty: true
+        container_name: dashboard-hdd
+        ports:
+            - 8008:8008
+        hostname: dashboard-hdd
+        image: dashboard-hdd:latest
+        command: sh
